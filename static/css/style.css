@@ -1,0 +1,602 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --error-color: #f44336;
+    --success-color: #4CAF50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.practice-section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.word-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.syllable-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.syllable-text {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+
+#currentWord {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.word-text {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.record-btn {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    font-size: 1.2rem;
+}
+
+.record-btn.recording {
+    background-color: var(--error-color);
+    animation: pulse 1.5s infinite;
+}
+
+.recording-section {
+    text-align: center;
+}
+
+.status {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.visualization {
+    width: 100%;
+    height: 100px;
+    margin: 1rem 0;
+}
+
+#audioVisualizer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.feedback-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.feedback-text {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    line-height: 1.6;
+    white-space: pre-line;
+    font-size: 1.1rem;
+}
+
+.feedback-error {
+    color: #D32F2F;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.feedback-tips {
+    background-color: #E3F2FD;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+.feedback-tips ol,
+.feedback-tips ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.feedback-tips li {
+    margin: 0.5rem 0;
+    color: #1976D2;
+}
+
+.retry-word {
+    font-weight: bold;
+    color: #2196F3;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.metric {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.metric:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.metric label {
+    font-weight: 500;
+    color: #666;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.score {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.history-section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.history-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.history-item p {
+    margin: 0.5rem 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.difficulty-select {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difficulty-select:hover {
+    border-color: var(--secondary-color);
+}
+
+.pronunciation-guide {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-family: monospace;
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.phoneme-analysis {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.phoneme-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.phoneme {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.phoneme.correct {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #2e7d32;
+    border: 1px solid #4CAF50;
+}
+
+.phoneme.incorrect {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #c62828;
+    border: 1px solid #f44336;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.syllable-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+    position: relative;
+}
+
+.syllable {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timing-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.timing-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.timing-long {
+    background: linear-gradient(to right, #4CAF50, #81C784);
+    width: 100%;
+}
+
+.timing-medium {
+    background: linear-gradient(to right, #2196F3, #64B5F6);
+    width: 70%;
+}
+
+.timing-short {
+    background: linear-gradient(to right, #FF9800, #FFB74D);
+    width: 40%;
+}
+
+.timing-label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.25rem;
+    text-align: center;
+}
+
+.syllables-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.syllable-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.syllable-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.syllable-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.timing-bar {
+    width: 100px;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.timing-indicator {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.timing-indicator.long {
+    width: 100%;
+    background-color: #4CAF50;
+}
+
+.timing-indicator.short {
+    width: 40%;
+    background-color: #FFA726;
+}
+
+.timing-indicator.normal {
+    width: 70%;
+    background-color: #2196F3;
+}
+
+.timing-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+.full-word {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 2rem 0;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.syllables-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.syllable-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+.syllable {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.timing-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.timing-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.timing-long {
+    background: linear-gradient(to right, #4CAF50, #81C784);
+    width: 100%;
+}
+
+.timing-medium {
+    background: linear-gradient(to right, #2196F3, #64B5F6);
+    width: 70%;
+}
+
+.timing-short {
+    background: linear-gradient(to right, #FF9800, #FFB74D);
+    width: 40%;
+}
+
+.timing-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.pronunciation-guide {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 1.5rem;
+    font-family: monospace;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Score colors */
+.score-high {
+    color: #4CAF50;  /* Green */
+    font-weight: bold;
+}
+
+.score-medium {
+    color: #FFA726;  /* Orange/Yellow */
+    font-weight: bold;
+}
+
+.score-low {
+    color: #F44336;  /* Red */
+    font-weight: bold;
+}
+
+/* Also apply to the main pronunciation score */
+#pronunciationScore.score-high {
+    color: #4CAF50;
+}
+
+#pronunciationScore.score-medium {
+    color: #FFA726;
+}
+
+#pronunciationScore.score-low {
+    color: #F44336;
+}
+ 
